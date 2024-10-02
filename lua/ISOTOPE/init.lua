@@ -1,2 +1,2 @@
 require("ISOTOPE.remap")
-print("hello from isotope")
+print("hello from ISOTOPE")

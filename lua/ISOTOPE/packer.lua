@@ -28,5 +28,24 @@ return require('packer').startup(function(use)
   use( 'wakatime/vim-wakatime' )
   use( 'tpope/vim-fugitive' )
   use( 'ThePrimeagen/vim-be-good' )
+
+  -- LSP Configuration & Plugins
+  use {
+    'neovim/nvim-lspconfig',
+    requires = {
+      -- Automatically install LSPs to stdpath for neovim
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+
+      -- Autocompletion
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'saadparwaiz1/cmp_luasnip',
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip', tag = "v2.*", run = "make install_jsregexp"}
+    },
+  }
 end)
 
