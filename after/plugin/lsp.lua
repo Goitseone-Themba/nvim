@@ -2,7 +2,7 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('user_lsp_attach', {clear = true}),
   callback = function(event)
-	  print("lps is here")
+	  print("lsp is here")
     local opts = {buffer = event.buf}
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -35,6 +35,7 @@ require('mason-lspconfig').setup({
     'gopls',              -- Go
     'pyright',            -- Python
     'lua_ls',             -- Lua
+    'sqls',           -- SQL
   },
   handlers = {
     function(server_name)
