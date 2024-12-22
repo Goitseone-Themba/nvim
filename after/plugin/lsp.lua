@@ -31,9 +31,7 @@ require('mason-lspconfig').setup({
     'jdtls',              -- Java
     'html',               -- HTML
     'cssls',              -- CSS
-   -- 'dartls',             -- Dart/Flutter
     'gopls',              -- Go
-    'pyright',            -- Python
     'lua_ls',             -- Lua
     'sqls',           -- SQL
   },
