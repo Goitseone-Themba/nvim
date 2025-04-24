@@ -57,3 +57,6 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/g<Left><Left>"
 
 -- superior chmod +x
 vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })
+
+-- Toggle floating terminal
+vim.keymap.set("n", "<leader>T", ":T<CR>", { noremap = true, silent = true, desc = "Toggle floating terminal" })
