@@ -2,7 +2,15 @@
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('user_lsp_attach', {clear = true}),
   callback = function(event)
-	  print("lsp is here")
+    -- Get the client that attached
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client then
+      -- Print the client's name
+      print("LSP attached: " .. client.name)
+    else
+      print("LSP attached: Unknown client")
+    end
+    
     local opts = {buffer = event.buf}
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
