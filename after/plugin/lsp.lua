@@ -35,13 +35,15 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'ts_ls',           -- JavaScript/TypeScript
-    'rust_analyzer',      -- Rust
+--    'rust_analyzer',      -- Rust
     'jdtls',              -- Java
     'html',               -- HTML
     'cssls',              -- CSS
     'gopls',              -- Go
     'lua_ls',             -- Lua
     'sqls',           -- SQL
+    'tailwindcss',      -- Tailwind CSS
+    'eslint',           -- ESLint
   },
   handlers = {
     function(server_name)
@@ -91,10 +93,11 @@ cmp.setup({
   },
 })
 
+--autocmd FileType rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
+--
 -- Set up LSP for specific file types
 vim.cmd [[
   autocmd FileType javascript,typescript,typescriptreact setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
   autocmd FileType java setlocal omnifunc=v:lua.vim.lsp.omnifunc
   autocmd FileType html,css setlocal omnifunc=v:lua.vim.lsp.omnifunc
   autocmd FileType dart setlocal omnifunc=v:lua.vim.lsp.omnifunc
