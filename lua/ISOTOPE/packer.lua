@@ -8,26 +8,41 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.8',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use ({
-	  'rose-pine/neovim',
-	  as = 'rose-pine',
-	  config = function()
-		  vim.cmd('colorscheme rose-pine')
-	  end
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+      vim.cmd('colorscheme rose-pine')
+    end
   })
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-  use( 'nvim-treesitter/playground' )
-  use( 'ThePrimeagen/harpoon' )
-  use( 'mbbill/undotree' )
-  use( 'wakatime/vim-wakatime' )
-  use( 'tpope/vim-fugitive' )
-  use( 'ThePrimeagen/vim-be-good' )
+  use({
+    'catppuccin/nvim',
+    as = 'catppuccin',
+    config = function()
+      vim.cmd('colorscheme catppuccin')
+    end
+  })
+
+  use({
+    'ellisonleao/gruvbox.nvim',
+    as = 'gruvbox',
+    config = function()
+      vim.cmd('colorscheme gruvbox')
+    end
+  })
+
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use('nvim-treesitter/playground')
+  use('ThePrimeagen/harpoon')
+  use('mbbill/undotree')
+  use('wakatime/vim-wakatime')
+  use('tpope/vim-fugitive')
+  use('ThePrimeagen/vim-be-good')
 
   -- LSP Configuration & Plugins
   use {
@@ -44,8 +59,19 @@ return require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
 
       -- Snippets
-      {'L3MON4D3/LuaSnip', tag = "v2.*", run = "make install_jsregexp"}
+      { 'L3MON4D3/LuaSnip', tag = "v2.*", run = "make install_jsregexp" }
     },
   }
-end)
 
+  -- 🧠 areyoulockedin.nvim
+  use {
+    "voltycodes/areyoulockedin.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    --event = "VeryLazy",
+    config = function()
+      require("areyoulockedin").setup({
+        session_key = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      })
+    end,
+  }
+end)
