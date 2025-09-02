@@ -6,7 +6,7 @@ My personal Neovim setup, configured in Lua and continuously evolving.
 
 -   **Modular:** Configuration is organized within the `lua/ISOTOPE/` directory.
 -   **Lua-based:** Leveraging Lua for Neovim configuration.
--   **Plugin Management:** Uses `packer.nvim`(yes still haven't moved to `lazy.vim`).
+-   **Plugin Management:** Uses `lazy.vim`).
 
 ## Key Features & Plugins
 
