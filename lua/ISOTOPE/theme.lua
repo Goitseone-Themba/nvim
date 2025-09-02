@@ -1,0 +1,1 @@
+/home/goitseone/.config/omarchy/current/theme/neovim.lua
