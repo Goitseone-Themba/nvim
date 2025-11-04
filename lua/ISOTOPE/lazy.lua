@@ -24,6 +24,15 @@ require("lazy").setup({
         version = "0.1.8",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
+    {
+        'sudormrfbin/cheatsheet.nvim',
+
+        dependencies = {
+            { 'nvim-telescope/telescope.nvim' },
+            { 'nvim-lua/popup.nvim' },
+            { 'nvim-lua/plenary.nvim' },
+        }
+    },
 
     -- Themes
     theme[1],
@@ -61,6 +70,7 @@ require("lazy").setup({
     "wakatime/vim-wakatime",
     "tpope/vim-fugitive",
     "ThePrimeagen/vim-be-good",
+    "ThePrimeagen/tmux-sessionizer",
 
     -- LSP + Mason + Completion
     {
@@ -76,5 +86,13 @@ require("lazy").setup({
 
             { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
         },
+    },
+    {
+        "github/copilot.vim",
+        config = function()
+            vim.g.copilot_no_tab_map = true
+            vim.g.copilot_assume_mapped = true
+            vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+        end,
     },
 })
