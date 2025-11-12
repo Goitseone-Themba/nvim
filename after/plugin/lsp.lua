@@ -44,6 +44,7 @@ require('mason-lspconfig').setup({
         'sqls',         -- SQL
         'tailwindcss',  -- Tailwind CSS
         'eslint',       -- ESLint
+        'pyright',       -- Python
     },
     handlers = {
         function(server_name)
