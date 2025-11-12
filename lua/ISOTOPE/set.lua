@@ -6,6 +6,9 @@ vim.opt.relativenumber = true
 vim.g.netrw_banner = 0
 -- vim.g.netrw_liststyle= 3
 
+-- disable copilot by default
+vim.g.copilot_enabled = false
+
 vim.g.have_nerd_font = true
 
 vim.opt.tabstop = 4
