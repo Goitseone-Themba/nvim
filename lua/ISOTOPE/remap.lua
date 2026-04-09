@@ -1,8 +1,13 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>")
 
 --duplicate current line
 vim.keymap.set("n", ".", "yyp")
+vim.keymap.set("v", ".", "yp")
+
+-- comment current line or selection
+vim.keymap.set("n", ",", "gcc", { remap = true })
+vim.keymap.set("v", ",", "gc", { remap = true })
 
 -- drag current highlighted line up or down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -44,7 +49,7 @@ vim.keymap.set("n", "<C-f>", "<cmd>!tmux new tmux-sessionizer<CR>")
 
 -- prettiest remap ever
 vim.keymap.set("n", "<leader>f", function()
-    vim.lsp.buf.format()
+    require("conform").format({ async = true, lsp_fallback = true })
 end)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
