@@ -94,15 +94,4 @@ cmp.setup({
     },
 })
 
---autocmd FileType rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
---
--- Set up LSP for specific file types
-vim.cmd [[
-  autocmd FileType javascript,typescript,typescriptreact setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType java setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType html,css setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType dart setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType python setlocal omnifunc=v:lua.vim.lsp.omnifunc
-  autocmd FileType lua setlocal omnifunc=v:lua.vim.lsp.omnifunc
-]]
+
