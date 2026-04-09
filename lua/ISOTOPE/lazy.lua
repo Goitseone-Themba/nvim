@@ -65,12 +65,72 @@ require("lazy").setup({
     "nvim-treesitter/playground",
 
     -- Utils
-    "ThePrimeagen/harpoon",
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" }
+    },
     "mbbill/undotree",
     "wakatime/vim-wakatime",
     "tpope/vim-fugitive",
     "ThePrimeagen/vim-be-good",
     "ThePrimeagen/tmux-sessionizer",
+
+    -- Formatting
+    {
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    lua = { "stylua" },
+                    javascript = { "prettier" },
+                    typescript = { "prettier" },
+                    javascriptreact = { "prettier" },
+                    typescriptreact = { "prettier" },
+                    json = { "prettier" },
+                    html = { "prettier" },
+                    css = { "prettier" },
+                },
+                format_on_save = {
+                    timeout_ms = 500,
+                    lsp_fallback = true,
+                },
+            })
+        end,
+    },
+
+    -- QoL Plugins
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+        lazy = false,
+    },
+    --
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = true,
+    },
+    {
+        "echasnovski/mini.surround",
+        version = false,
+        config = true,
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
+        keys = {
+            { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Diagnostics (Trouble)" },
+            { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+        },
+    },
 
     -- LSP + Mason + Completion
     {
@@ -84,9 +144,18 @@ require("lazy").setup({
             "hrsh7th/cmp-buffer",
             "saadparwaiz1/cmp_luasnip",
 
-            { "L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp" },
+            {
+                "L3MON4D3/LuaSnip",
+                version = "v2.*",
+                build = "make install_jsregexp",
+                dependencies = { "rafamadriz/friendly-snippets" },
+                config = function()
+                    require("luasnip.loaders.from_vscode").lazy_load()
+                end
+            },
         },
     },
+
     {
         "github/copilot.vim",
         config = function()
