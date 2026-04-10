@@ -118,11 +118,6 @@ require("lazy").setup({
         config = true,
     },
     {
-        "echasnovski/mini.surround",
-        version = false,
-        config = true,
-    },
-    {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {},
