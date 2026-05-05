@@ -85,8 +85,17 @@ require("lazy").setup({
 
 
     -- Treesitter
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    "nvim-treesitter/playground",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        opts = {
+            ensure_installed = { "java", "html", "css", "javascript", "typescript", "c", "lua", "rust", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python" },
+            sync_install = false,
+            auto_install = true,
+            highlight = { enable = true },
+        },
+    },
+    -- "nvim-treesitter/playground", -- deprecated, merged into nvim-treesitter
 
     -- Utils
     {
@@ -124,17 +133,17 @@ require("lazy").setup({
     },
 
     -- QoL Plugins
-    -- {
-    --     'stevearc/oil.nvim',
-    --     ---@module 'oil'
-    --     ---@type oil.SetupOpts
-    --     opts = {},
-    --     -- Optional dependencies
-    --     dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-    --     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-    --     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-    --     lazy = false,
-    -- },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+        lazy = false,
+    },
     --
     { "nvim-mini/mini.icons",            opts = {} },
     {
