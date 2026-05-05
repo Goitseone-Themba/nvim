@@ -38,25 +38,49 @@ require("lazy").setup({
     theme[1],
     {
         "rose-pine/neovim",
-        name = "rose-pine",
-        config = function()
-            vim.cmd("colorscheme rose-pine")
-        end,
     },
     {
         "catppuccin/nvim",
-        name = "catppuccin",
-        config = function()
-            vim.cmd("colorscheme catppuccin")
-        end,
     },
     {
         "ellisonleao/gruvbox.nvim",
-        name = "gruvbox",
-        config = function()
-            vim.cmd("colorscheme gruvbox")
-        end,
     },
+    {
+        "bjarneo/ethereal.nvim",
+    },
+    {
+        "neanias/everforest-nvim",
+    },
+    {
+        "kepano/flexoki-neovim",
+    },
+    {
+        "rebelot/kanagawa.nvim",
+    },
+    {
+        "tahayvr/matteblack.nvim",
+    },
+    {
+        "EdenEast/nightfox.nvim",
+    },
+    {
+        "gthelding/monokai-pro.nvim",
+    },
+    {
+        "ribru17/bamboo.nvim",
+    },
+    {
+        "bjarneo/vantablack.nvim",
+    },
+    {
+        "bjarneo/white.nvim",
+    },
+    {
+        "folke/tokyonight.nvim",
+    },
+
+
+
 
 
 
@@ -100,18 +124,19 @@ require("lazy").setup({
     },
 
     -- QoL Plugins
-    {
-        'stevearc/oil.nvim',
-        ---@module 'oil'
-        ---@type oil.SetupOpts
-        opts = {},
-        -- Optional dependencies
-        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
-        lazy = false,
-    },
+    -- {
+    --     'stevearc/oil.nvim',
+    --     ---@module 'oil'
+    --     ---@type oil.SetupOpts
+    --     opts = {},
+    --     -- Optional dependencies
+    --     dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    --     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    --     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    --     lazy = false,
+    -- },
     --
+    { "nvim-mini/mini.icons",            opts = {} },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",
@@ -125,6 +150,12 @@ require("lazy").setup({
             { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Diagnostics (Trouble)" },
             { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
         },
+    },
+
+    -- Status line
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
 
     -- LSP + Mason + Completion
