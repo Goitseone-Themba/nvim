@@ -3,7 +3,7 @@ theme = require("ISOTOPE.theme")
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
     vim.fn.system({
         "git",
         "clone",
@@ -21,7 +21,7 @@ require("lazy").setup({
     -- Telescope
     {
         "nvim-telescope/telescope.nvim",
-        version = "0.1.8",
+        branch = "master",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
@@ -78,11 +78,9 @@ require("lazy").setup({
     {
         "folke/tokyonight.nvim",
     },
-
-
-
-
-
+    {
+        "OldJobobo/retro-82.nvim",
+    },
 
     -- Treesitter
     {
