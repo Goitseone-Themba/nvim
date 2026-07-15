@@ -34,17 +34,17 @@ require('mason').setup({})
 -- Set up Mason-LSPConfig
 require('mason-lspconfig').setup({
     ensure_installed = {
-        'ts_ls',        -- JavaScript/TypeScript
+        'ts_ls',       -- JavaScript/TypeScript
         --    'rust_analyzer',      -- Rust
-        'jdtls',        -- Java
-        'html',         -- HTML
-        'cssls',        -- CSS
-        'gopls',        -- Go
-        'lua_ls',       -- Lua
-        'sqls',         -- SQL
-        'tailwindcss',  -- Tailwind CSS
-        'eslint',       -- ESLint
-        'pyright',       -- Python
+        'jdtls',       -- Java
+        'html',        -- HTML
+        'cssls',       -- CSS
+        'gopls',       -- Go
+        'lua_ls',      -- Lua
+        'sqls',        -- SQL
+        'tailwindcss', -- Tailwind CSS
+        'eslint',      -- ESLint
+        'pyright',     -- Python
     },
     handlers = {
         function(server_name)
@@ -93,5 +93,3 @@ cmp.setup({
         end,
     },
 })
-
-
