@@ -1,9 +1,10 @@
 vim.g.mapleader = " "
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>pv", "<cmd>Oil<CR>")
 
 --duplicate current line
-vim.keymap.set("n", ".", "yyp")
-vim.keymap.set("v", ".", "yp")
+vim.keymap.set("n", ";", "yyp")
+vim.keymap.set("v", ";", "yp")
 
 -- comment current line or selection
 vim.keymap.set("n", ",", "gcc", { remap = true })
@@ -36,12 +37,11 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 
 vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "<C-f>", "<cmd>!tmux new tmux-sessionizer<CR>")
---vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux new tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- prettiest remap ever
 vim.keymap.set("n", "<leader>f", function()
-    require("conform").format({ async = true, lsp_fallback = true })
+  require("conform").format({ async = true, lsp_fallback = true })
 end)
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
