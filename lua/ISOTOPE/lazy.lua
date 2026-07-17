@@ -124,7 +124,7 @@ require("lazy").setup({
                 },
                 format_on_save = {
                     timeout_ms = 500,
-                    lsp_fallback = true,
+                    lsp_format = "fallback",
                 },
             })
         end,
@@ -135,12 +135,16 @@ require("lazy").setup({
         'stevearc/oil.nvim',
         ---@module 'oil'
         ---@type oil.SetupOpts
-        opts = {},
-        -- Optional dependencies
         dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
-        -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
         lazy = false,
+        opts = {
+            view_options = {
+                show_hidden = true,
+                is_hidden_file = function(name, bufnr)
+                    return vim.startswith(name, ".")
+                end,
+            },
+        },
     },
     --
     { "nvim-mini/mini.icons",            opts = {} },
@@ -163,6 +167,25 @@ require("lazy").setup({
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            options = {
+                theme = "auto",
+                component_separators = "",
+                section_separators = "",
+                globalstatus = true,
+                disabled_filetypes = {
+                    statusline = { "dashboard" },
+                },
+            },
+            sections = {
+                lualine_a = { "mode" },
+                lualine_b = { "branch", "diff" },
+                lualine_c = { "filename", "diagnostics" },
+                lualine_x = { "filetype" },
+                lualine_y = { "progress" },
+                lualine_z = { "location" },
+            },
+        },
     },
 
     -- LSP + Mason + Completion

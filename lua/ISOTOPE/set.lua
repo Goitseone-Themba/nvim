@@ -2,10 +2,6 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
--- configure netrw(built-in file explorer)
-vim.g.netrw_banner = 0
--- vim.g.netrw_liststyle= 3
-
 -- disable copilot by default
 vim.g.copilot_enabled = false
 

@@ -3,7 +3,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('user_lsp_attach', { clear = true }),
     callback = function(event)
         -- Get the client that attached
-        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        local client = vim.lsp.get_clients({ id = event.data.client_id })[1]
         if client then
             -- Print the client's name
             print("LSP attached: " .. client.name)

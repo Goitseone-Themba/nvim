@@ -1,2 +1,1 @@
 require("ISOTOPE")
-print("Hello")

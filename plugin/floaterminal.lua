@@ -61,8 +61,8 @@ vim.api.nvim_create_user_command("T", function ()
             vim.api.nvim_buf_delete(float_info.buf, {force = true})
 
             -- Set common window options
-            vim.api.nvim_win_set_option(state.floating.win, "number", false)
-            vim.api.nvim_win_set_option(state.floating.win, "relativenumber", false)
+            vim.wo[state.floating.win].number = false
+            vim.wo[state.floating.win].relativenumber = false
 
             -- Focus window and enter terminal mode
             vim.api.nvim_set_current_win(state.floating.win)
@@ -75,14 +75,14 @@ vim.api.nvim_create_user_command("T", function ()
         -- state.floating.win is still -1
 
         -- Set buffer options *before* opening terminal
-        vim.api.nvim_buf_set_option(state.floating.buf, 'bufhidden', 'hide')
+        vim.bo[state.floating.buf].bufhidden = 'hide'
 
         -- Open the actual window now
         state.floating.win = vim.api.nvim_open_win(state.floating.buf, true, float_info.config)
-        
+
         -- Set common window options
-        vim.api.nvim_win_set_option(state.floating.win, "number", false)
-        vim.api.nvim_win_set_option(state.floating.win, "relativenumber", false)
+        vim.wo[state.floating.win].number = false
+        vim.wo[state.floating.win].relativenumber = false
 
         -- Open terminal in the buffer (attaches to existing buffer/window)
         vim.fn.termopen(vim.o.shell, {
